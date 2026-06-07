@@ -3,10 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- 💡 ブラウザのタブに表示される名前を変更しました -->
     <title>Easy.pyホームページ</title>
     <style>
-        /* 全体のダークモードデザイン */
         body {
             background-color: #0d1117;
             color: #c9d1d9;
@@ -25,7 +23,6 @@
             width: 100%;
             flex: 1;
         }
-        /* 💡 サイト最上部のタイトルデザイン */
         .site-header {
             text-align: left;
             margin-bottom: 25px;
@@ -42,7 +39,6 @@
             font-size: 13px;
             margin: 0;
         }
-        /* タグ */
         .tags {
             display: flex;
             gap: 8px;
@@ -57,7 +53,6 @@
             font-size: 12px;
             color: #8b949e;
         }
-        /* ミニIDE全体の枠 */
         .ide-box {
             background-color: #12161f;
             border: 1px solid #21262d;
@@ -80,7 +75,6 @@
             color: #8b949e;
             font-size: 11px;
         }
-        /* エディタ */
         textarea {
             width: 100%;
             height: 120px;
@@ -92,10 +86,9 @@
             padding: 10px;
             box-sizing: border-box;
             resize: none;
-            font-size: 13px;
+            font-size: 14px;
             line-height: 1.5;
         }
-        /* ボタン */
         .btn-group {
             display: flex;
             align-items: center;
@@ -126,7 +119,6 @@
             font-size: 11px;
             flex: 1;
         }
-        /* 出力エリア */
         .output-box {
             background-color: #05070a;
             border: 1px solid #30363d;
@@ -134,12 +126,11 @@
             min-height: 80px;
             padding: 10px;
             font-family: monospace;
-            font-size: 13px;
+            font-size: 14px;
             color: #58a6ff;
             white-space: pre-wrap;
             box-sizing: border-box;
         }
-        /* リンクエリアの枠 */
         .link-box {
             background-color: #12161f;
             border: 1px solid #21262d;
@@ -168,7 +159,6 @@
             line-height: 1.5;
             margin: 0;
         }
-        /* 丸いリンクボタン */
         .link-buttons {
             display: flex;
             gap: 10px;
@@ -185,7 +175,6 @@
             text-decoration: none;
             display: inline-block;
         }
-        /* フッター */
         footer {
             width: 100%;
             max-width: 500px;
@@ -207,30 +196,24 @@
 <body>
 
     <div class="container">
-        <!-- 💡 サイトのタイトルエリア -->
         <div class="site-header">
             <h1 class="site-title">Easy.pyホームページ</h1>
             <p class="site-desc">Easy's official website</p>
         </div>
 
-        <!-- 🏷️ タグ -->
         <div class="tags">
-            <div class="tag">Python</div>
+            <div class="tag">let / print</div>
+            <div class="tag">if / else / loop</div>
             <div class="tag">Easy.py</div>
-            <div class="tag">自作ページ</div>
         </div>
 
-        <!-- 💻 ミニIDE -->
         <div class="ide-box">
             <div class="ide-header">
                 <div class="ide-title">ミニIDE</div>
                 <div class="ide-subtitle">ブラウザ上で試せる簡易実行環境</div>
             </div>
-            <!-- 💡 初期コードの中身もPython風に変更しました -->
-            <textarea id="codeEditor">name = "Explorer"
-
-print(f"Hello, {name}!")
-print("Easy.pyホームページへ ようこそ！")</textarea>
+            <!-- 💡 画像と同じように、超シンプルな初期コードにしました -->
+            <textarea id="codeEditor">print あいうえお</textarea>
             <div class="btn-group">
                 <button class="btn-run" onclick="runCode()">実行</button>
                 <button class="btn-reset" onclick="resetCode()">リセット</button>
@@ -239,7 +222,6 @@ print("Easy.pyホームページへ ようこそ！")</textarea>
             <div id="outputArea" class="output-box">ここに結果が表示されます</div>
         </div>
 
-        <!-- 🔗 リンクエリア -->
         <div class="link-box">
             <div class="link-header">
                 <div class="ide-title">リンク</div>
@@ -257,7 +239,6 @@ print("Easy.pyホームページへ ようこそ！")</textarea>
         </div>
     </div>
 
-    <!-- 👣 フッター -->
     <footer>
         <div>&copy; 2026 Easy.py / mito-easy</div>
         <div>
@@ -265,31 +246,26 @@ print("Easy.pyホームページへ ようこそ！")</textarea>
         </div>
     </footer>
 
-    <!-- 🛠️ JavaScriptの仕組み（Pythonのprintに対応） -->
+    <!-- 🛠️ カッコなしの「print 文字」を動かす仕組み -->
     <script>
-        const defaultCode = `name = "Explorer"\n\nprint(f"Hello, {name}!")\nprint("Easy.pyホームページへ ようこそ！")`;
+        const defaultCode = `print あいうえお`;
         function runCode() {
             const code = document.getElementById('codeEditor').value;
             const outputArea = document.getElementById('outputArea');
             outputArea.innerText = '';
-            let name = "Explorer";
+            
             const lines = code.split('\n');
             let result = [];
             
             lines.forEach(line => {
-                // 変数代入の読み取り (name = "xxx")
-                const varMatch = line.match(/name\s*=\s*"([^"]+)"/);
-                if (varMatch) { name = varMatch[1]; }
-                
-                // print文の読み取り
-                const printMatch = line.match(/print\(\s*f?"([^"]+)"\s*\)/);
-                if (printMatch) {
-                    let text = printMatch[1];
-                    text = text.replace('{name}', name);
+                const trimmed = line.trim();
+                // 「print 」から始まる行を探し、それ以降の文字をそのまま出力する
+                if (trimmed.startsWith('print ')) {
+                    const text = trimmed.substring(6);
                     result.push(text);
                 }
             });
-            outputArea.innerText = result.length === 0 ? "出力はありません（print(\"文字\") の形式で書いてね）" : result.join('\n');
+            outputArea.innerText = result.length === 0 ? "出力はありません（print 文字 の形式で書いてね）" : result.join('\n');
         }
         function resetCode() {
             document.getElementById('codeEditor').value = defaultCode;
