@@ -5,192 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Easy.pyホームページ</title>
     <style>
-        body {
-            background-color: #0d1117;
-            color: #c9d1d9;
-            font-family: sans-serif;
-            margin: 0;
-            padding: 20px 20px 0 20px;
-            display: flex;
-            justify-content: center;
-            min-height: 100vh;
-            flex-direction: column;
-            align-items: center;
-            box-sizing: border-box;
-        }
-        .container {
-            max-width: 500px;
-            width: 100%;
-            flex: 1;
-        }
-        .site-header {
-            text-align: left;
-            margin-bottom: 25px;
-            width: 100%;
-        }
-        .site-title {
-            color: #ffffff;
-            font-size: 24px;
-            font-weight: bold;
-            margin: 0 0 5px 0;
-        }
-        .site-desc {
-            color: #8b949e;
-            font-size: 13px;
-            margin: 0;
-        }
-        .tags {
-            display: flex;
-            gap: 8px;
-            margin-bottom: 20px;
-            flex-wrap: wrap;
-        }
-        .tag {
-            background-color: #1f242c;
-            border: 1px solid #30363d;
-            border-radius: 15px;
-            padding: 4px 12px;
-            font-size: 12px;
-            color: #8b949e;
-        }
-        .ide-box {
-            background-color: #12161f;
-            border: 1px solid #21262d;
-            border-radius: 12px;
-            padding: 20px;
-            margin-bottom: 25px;
-        }
-        .ide-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            margin-bottom: 15px;
-        }
-        .ide-title {
-            color: #ffffff;
-            font-size: 16px;
-            font-weight: bold;
-        }
-        .ide-subtitle {
-            color: #8b949e;
-            font-size: 11px;
-        }
-        textarea {
-            width: 100%;
-            height: 120px;
-            background-color: #05070a;
-            border: 1px solid #30363d;
-            border-radius: 6px;
-            color: #e6edf3;
-            font-family: monospace;
-            padding: 10px;
-            box-sizing: border-box;
-            resize: none;
-            font-size: 14px;
-            line-height: 1.5;
-        }
-        .btn-group {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin: 15px 0;
-        }
-        .btn-run {
-            background-color: #238636;
-            color: white;
-            border: none;
-            border-radius: 20px;
-            padding: 6px 20px;
-            font-weight: bold;
-            cursor: pointer;
-            font-size: 13px;
-        }
-        .btn-reset {
-            background-color: transparent;
-            color: #8b949e;
-            border: 1px solid #30363d;
-            border-radius: 20px;
-            padding: 6px 15px;
-            cursor: pointer;
-            font-size: 13px;
-        }
-        .btn-hint {
-            color: #8b949e;
-            font-size: 11px;
-            flex: 1;
-        }
-        .output-box {
-            background-color: #05070a;
-            border: 1px solid #30363d;
-            border-radius: 6px;
-            min-height: 80px;
-            padding: 10px;
-            font-family: monospace;
-            font-size: 14px;
-            color: #58a6ff;
-            white-space: pre-wrap;
-            box-sizing: border-box;
-        }
-        .link-box {
-            background-color: #12161f;
-            border: 1px solid #21262d;
-            border-radius: 12px;
-            padding: 20px;
-            margin-bottom: 40px;
-        }
-        .link-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            margin-bottom: 15px;
-        }
-        .link-item {
-            margin-bottom: 15px;
-        }
-        .link-item-title {
-            color: #ffffff;
-            font-size: 13px;
-            font-weight: bold;
-            margin-bottom: 4px;
-        }
-        .link-item-desc {
-            color: #8b949e;
-            font-size: 12px;
-            line-height: 1.5;
-            margin: 0;
-        }
-        .link-buttons {
-            display: flex;
-            gap: 10px;
-            margin-top: 20px;
-            flex-wrap: wrap;
-        }
-        .btn-outline {
-            background-color: transparent;
-            color: #c9d1d9;
-            border: 1px solid #30363d;
-            border-radius: 20px;
-            padding: 6px 14px;
-            font-size: 12px;
-            text-decoration: none;
-            display: inline-block;
-        }
-        footer {
-            width: 100%;
-            max-width: 500px;
-            border-top: 1px solid #21262d;
-            padding: 15px 0;
-            display: flex;
-            justify-content: space-between;
-            font-size: 11px;
-            color: #8b949e;
-            margin-top: auto;
-        }
-        footer a {
-            color: #8b949e;
-            text-decoration: none;
-            margin-left: 10px;
-        }
+        *, *::before, *::after { box-sizing: border-box; }
+        body { background-color: #0d1117; color: #c9d1d9; font-family: sans-serif; margin: 0; padding: 20px; display: flex; justify-content: center; min-height: 100vh; flex-direction: column; align-items: center; }
+        .container { max-width: 500px; width: 100%; flex: 1; }
+        .site-header { text-align: left; margin-bottom: 25px; width: 100%; }
+        .site-title { color: #ffffff; font-size: 24px; font-weight: bold; margin: 0 0 5px 0; }
+        .site-desc { color: #8b949e; font-size: 13px; margin: 0; }
+        .tags { display: flex; gap: 8px; margin-bottom: 20px; flex-wrap: wrap; }
+        .tag { background-color: #1f242c; border: 1px solid #30363d; border-radius: 15px; padding: 4px 12px; font-size: 12px; color: #8b949e; }
+        .ide-box { background-color: #12161f; border: 1px solid #21262d; border-radius: 12px; padding: 20px; margin-bottom: 25px; width: 100%; }
+        .ide-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 15px; flex-wrap: wrap; gap: 5px; }
+        .ide-title { color: #ffffff; font-size: 16px; font-weight: bold; }
+        .ide-subtitle { color: #8b949e; font-size: 11px; }
+        textarea { width: 100%; height: 180px; background-color: #05070a; border: 1px solid #30363d; border-radius: 6px; color: #e6edf3; font-family: monospace; padding: 10px; resize: none; font-size: 14px; line-height: 1.5; }
+        .btn-group { display: flex; align-items: center; gap: 10px; margin: 15px 0; flex-wrap: wrap; }
+        .btn-run { background-color: #238636; color: white; border: none; border-radius: 20px; padding: 6px 20px; font-weight: bold; cursor: pointer; font-size: 13px; }
+        .btn-reset { background-color: transparent; color: #8b949e; border: 1px solid #30363d; border-radius: 20px; padding: 6px 15px; cursor: pointer; font-size: 13px; }
+        .btn-hint { color: #8b949e; font-size: 11px; width: 100%; margin-top: 2px; }
+        .output-box { background-color: #05070a; border: 1px solid #30363d; border-radius: 6px; min-height: 80px; padding: 10px; font-family: monospace; font-size: 14px; color: #58a6ff; white-space: pre-wrap; width: 100%; }
+        .ide-note { color: #8b949e; font-size: 12px; text-align: left; margin-top: 15px; line-height: 1.5; }
+        .link-box { background-color: #12161f; border: 1px solid #21262d; border-radius: 12px; padding: 20px; margin-bottom: 40px; width: 100%; }
+        .link-item { margin-bottom: 15px; }
+        .link-item-title { color: #ffffff; font-size: 13px; font-weight: bold; margin-bottom: 4px; }
+        .link-item-desc { color: #8b949e; font-size: 12px; line-height: 1.5; margin: 0; }
+        .link-buttons { display: flex; gap: 10px; margin-top: 20px; flex-wrap: wrap; }
+        .btn-outline { background-color: transparent; color: #c9d1d9; border: 1px solid #30363d; border-radius: 20px; padding: 6px 14px; font-size: 12px; text-decoration: none; display: inline-block; max-width: 100%; text-overflow: ellipsis; overflow: hidden; white-space: nowrap; }
+        footer { width: 100%; max-width: 500px; border-top: 1px solid #21262d; padding: 15px 0; display: flex; justify-content: space-between; font-size: 11px; color: #8b949e; margin-top: auto; flex-wrap: wrap; gap: 10px; }
+        footer a { color: #8b949e; text-decoration: none; margin-left: 10px; }
     </style>
 </head>
 <body>
@@ -202,74 +43,108 @@
         </div>
 
         <div class="tags">
-            <div class="tag">let / print</div>
-            <div class="tag">if / else / loop</div>
-            <div class="tag">Easy.py</div>
+            <div class="tag">保存 / 表示 / 応援</div>
+            <div class="tag">絶対に / 繰り返す / 待つ</div>
+            <div class="tag">乱数 / 入力 / 合体</div>
         </div>
 
         <div class="ide-box">
             <div class="ide-header">
-                <div class="ide-title">ミニIDE</div>
+                <div class="ide-title">ミニIDE（日本語版）</div>
                 <div class="ide-subtitle">ブラウザ上で試せる簡易実行環境</div>
             </div>
-            <!-- 💡 画像と同じように、超シンプルな初期コードにしました -->
-            <textarea id="codeEditor">print あいうえお</textarea>
+            <textarea id="codeEditor">入力桁 = パスワードは何桁にする？
+パスワード生成結果 = 桁
+アニメ 生成したパスワードは以下です:
+表示 生成結果
+音
+警告 完了しました！</textarea>
             <div class="btn-group">
-                <button class="btn-run" onclick="runCode()">実行</button>
+                <button class="btn-run" onclick="runCode()">実行する</button>
                 <button class="btn-reset" onclick="resetCode()">リセット</button>
-                <div class="btn-hint">上の文字を書き換えて実行できます</div>
+                <div class="btn-hint">上の日本語を書き換えて実行できます</div>
             </div>
-            <div id="outputArea" class="output-box">ここに結果が表示されます</div>
+            <div id="outputArea" class="output-box">実行結果:</div>
+            <div class="ide-note">※これ以外はGitHubに変えてあります</div>
         </div>
 
         <div class="link-box">
-            <div class="link-header">
+            <div class="ide-header">
                 <div class="ide-title">リンク</div>
                 <div class="ide-subtitle">外部の関連ページなど</div>
             </div>
-            
             <div class="link-item">
                 <div class="link-item-title">GitHub: mito-easy</div>
-                <p class="link-item-desc">Easy.pyのソースコードやプロジェクトを公開している保管庫です。</p>
+                <p class="link-item-desc">Easy.pyのソースコード公開所です。</p>
             </div>
-
+            <div class="link-item">
+                <div class="link-item-title">Zennの記事</div>
+                <p class="link-item-desc">Easy.pyの仕様解説記事です。</p>
+            </div>
+            <div class="link-item">
+                <div class="link-item-title">Discordコミュニティ</div>
+                <p class="link-item-desc">公式交流サーバーです。</p>
+            </div>
             <div class="link-buttons">
-                <a href="https://github.com" class="btn-outline">GitHub: @mito-easy</a>
+                <a href="https://github.com" target="_blank" class="btn-outline">GitHub</a>
+                <a href="https://zenn.dev" target="_blank" class="btn-outline">Zenn</a>
+                <a href="https://discord.gg" target="_blank" class="btn-outline">Discord</a>
             </div>
         </div>
     </div>
 
     <footer>
-        <div>&copy; 2026 Easy.py / mito-easy</div>
+        <div>&copy; 2026 Easy.py</div>
         <div>
-            <a href="https://github.com">GitHub</a>
+            <a href="https://github.com" target="_blank">GitHub</a>
+            <a href="https://zenn.dev" target="_blank">Zenn</a>
+            <a href="https://discord.gg" target="_blank">Discord</a>
         </div>
     </footer>
 
-    <!-- 🛠️ カッコなしの「print 文字」を動かす仕組み -->
+    <!-- 💡 プログラムの中身を短く整理し、絶対に途切れないようにしました -->
     <script>
-        const defaultCode = `print あいうえお`;
+        const defaultCode = `入力桁 = パスワードは何桁にする？\nパスワード生成結果 = 桁\nアニメ 生成したパスワードは以下です:\n表示 生成結果\n音\n警告 完了しました！`;
+        function playBeep() {
+            try {
+                const ctx = new (window.AudioContext || window.webkitAudioContext)();
+                const osc = ctx.createOscillator();
+                osc.type = 'sine'; osc.frequency.setValueAtTime(800, ctx.currentTime);
+                osc.connect(ctx.destination); osc.start(); osc.stop(ctx.currentTime + 0.15);
+            } catch (e) {}
+        }
         function runCode() {
             const code = document.getElementById('codeEditor').value;
             const outputArea = document.getElementById('outputArea');
-            outputArea.innerText = '';
-            
-            const lines = code.split('\n');
-            let result = [];
-            
-            lines.forEach(line => {
-                const trimmed = line.trim();
-                // 「print 」から始まる行を探し、それ以降の文字をそのまま出力する
-                if (trimmed.startsWith('print ')) {
-                    const text = trimmed.substring(6);
-                    result.push(text);
+            outputArea.innerText = '実行結果:\n';
+            let res = [], v = { "生成結果": "8桁のランダムパスワード" };
+            code.split('\n').forEach(line => {
+                const t = line.trim(); if (!t) return;
+                if (t.includes(' = ') && (t.includes('入力') || t.includes('？') || t.includes('?'))) {
+                    const p = t.split('='), k = p[0].trim(), q = p[1].trim();
+                    const input = prompt(q) || "8"; v[k] = input;
+                    if (k === "入力桁") {
+                        v["桁"] = input + "桁のパスワード";
+                        v["生成結果"] = Math.random().toString(36).substring(2, 2 + parseInt(input || 8));
+                    }
+                    return;
                 }
+                if (t.includes(' = ')) {
+                    const p = t.split('='), l = p[0].trim(), r = p[1].trim();
+                    if (v[r]) v[l] = v[r]; return;
+                }
+                if (t.startsWith('アニメ ')) { res.push("[演出] " + t.substring(4)); return; }
+                if (t.startsWith('表示 ')) {
+                    const g = t.substring(3); res.push(v[g] || v["パスワード" + g] || g); return;
+                }
+                if (t === '音') { playBeep(); res.push("🎵 ピピッ"); return; }
+                if (t.startsWith('警告 ')) { const m = t.substring(3); alert(m); res.push("⚠️ 警告: " + m); return; }
             });
-            outputArea.innerText = result.length === 0 ? "出力はありません（print 文字 の形式で書いてね）" : result.join('\n');
+            outputArea.innerText += res.join('\n');
         }
         function resetCode() {
             document.getElementById('codeEditor').value = defaultCode;
-            document.getElementById('outputArea').innerText = 'リセットしました。実行ボタンを押してください。';
+            document.getElementById('outputArea').innerText = '実行結果:';
         }
     </script>
 
